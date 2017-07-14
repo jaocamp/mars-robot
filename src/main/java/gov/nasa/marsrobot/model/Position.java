@@ -2,28 +2,16 @@ package gov.nasa.marsrobot.model;
 
 import gov.nasa.marsrobot.domain.Orientation;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.io.Serializable;
 
-@Entity
 public class Position implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private Integer x;
 
     private Integer y;
 
-    @Enumerated(EnumType.STRING)
     private Orientation orientation;
 
     public Position() {
@@ -33,10 +21,6 @@ public class Position implements Serializable {
         this.x = x;
         this.y = y;
         this.orientation = orientation;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public Integer getX() {
@@ -55,6 +39,30 @@ public class Position implements Serializable {
         this.y = y;
     }
 
+    public void advanceX() {
+        this.x++;
+    }
+
+    public void backX() {
+        this.x--;
+    }
+
+    public void advanceY() {
+        this.y++;
+    }
+
+    public void backY() {
+        this.y--;
+    }
+
+    public void addX() {
+        this.x++;
+    }
+
+    public void removeX() {
+        this.x--;
+    }
+
     public Orientation getOrientation() {
         return orientation;
     }
@@ -65,12 +73,10 @@ public class Position implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Position{");
-        sb.append("id=").append(id);
-        sb.append(", x=").append(x);
-        sb.append(", y=").append(y);
-        sb.append(", orientation=").append(orientation);
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("(");
+        sb.append(x).append(", ");
+        sb.append(y).append(", ");
+        sb.append(orientation.getValue()).append(")");
         return sb.toString();
     }
 }
