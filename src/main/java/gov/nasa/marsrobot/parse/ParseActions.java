@@ -4,6 +4,7 @@ import gov.nasa.marsrobot.business.Action;
 import gov.nasa.marsrobot.business.LeftRotateRobot;
 import gov.nasa.marsrobot.business.MoveRobot;
 import gov.nasa.marsrobot.business.RightRotateRobot;
+import gov.nasa.marsrobot.exception.CommandDoesNotValidException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class ParseActions {
             case 'M':
                 return new MoveRobot();
             default:
-                return null;
+                throw new CommandDoesNotValidException();
         }
     }
 }

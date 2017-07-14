@@ -1,2 +1,8 @@
-robot:
-  name: Testando
+mars_robot:
+  land_width: 5
+  land_height: 5
+
+  error:
+    command_not_valid: Um dos comandos enviandos na rota não é valido.
+    position_not_valid: A rota informada leva a uma posição invalida.
+    unknown: Ocorreu um problema desconhecido, para mais informações entre em contato com o suporte.

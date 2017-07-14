@@ -1,6 +1,7 @@
 package gov.nasa.marsrobot.controller;
 
-import gov.nasa.marsrobot.model.Position;
+import gov.nasa.marsrobot.handler.ErrorHandler;
+import gov.nasa.marsrobot.model.Robot;
 import gov.nasa.marsrobot.service.RobotService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,22 +21,27 @@ public class RobotController {
     private Logger logger = LoggerFactory.getLogger(RobotController.class);
 
     private RobotService robotService;
+    private ErrorHandler errorHandler;
 
     @RequestMapping(value="/go/{route}", method= RequestMethod.POST)
     public ResponseEntity<?> goTo(@PathVariable String route) {
         try {
 
-            Position position = robotService.goTo(route);
-            return ResponseEntity.ok(position);
+            Robot robot = robotService.goTo(route);
+            return ResponseEntity.ok(robot.getPosition().toString());
 
         } catch (Exception e) {
-            logger.error("{GenericController.update} - Unexpected error occurred while going to route.");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            return errorHandler.handler(e);
         }
     }
 
     @Autowired
     public void setRobotService(RobotService robotService) {
         this.robotService = robotService;
+    }
+
+    @Autowired
+    public void setErrorHandler(ErrorHandler errorHandler) {
+        this.errorHandler = errorHandler;
     }
 }
