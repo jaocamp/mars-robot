@@ -9,7 +9,6 @@ public class MoveRobot implements Action {
 
     @Override
     public void execute(Robot robot){
-        Position position = robot.getPosition();
-        position.getOrientation().move(position);
+        robot.getPosition().getOrientation().move(robot.getPosition());
     }
 }
