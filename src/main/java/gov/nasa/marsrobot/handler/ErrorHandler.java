@@ -15,7 +15,6 @@ public class ErrorHandler {
 
     private Logger logger = LoggerFactory.getLogger(RobotController.class);
 
-    @Autowired
     private Environment env;
 
     public ResponseEntity<?> handler(Exception exception) {
@@ -36,5 +35,10 @@ public class ErrorHandler {
 
             return ResponseEntity.badRequest().body(message);
         }
+    }
+
+    @Autowired
+    public void setEnv(Environment env) {
+        this.env = env;
     }
 }

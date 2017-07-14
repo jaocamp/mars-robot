@@ -1,6 +1,10 @@
 mars_robot:
+  name: Bit
   land_width: 5
   land_height: 5
+  init_x: 0
+  init_y: 0
+  init_orientation: NORTH
 
   error:
     command_not_valid: Um dos comandos enviandos na rota não é valido.

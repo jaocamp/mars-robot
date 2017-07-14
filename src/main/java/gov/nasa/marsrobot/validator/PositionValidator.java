@@ -8,10 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PositionValidator {
 
-    @Value("${mars_robot.land_width}")
     private Integer landWidth;
-
-    @Value("${mars_robot.land_height}")
     private Integer landHeight;
 
     public void isValid(Position position) {
@@ -21,5 +18,15 @@ public class PositionValidator {
                 || position.getY() > landHeight) {
             throw new PositionDoesNotValidException();
         }
+    }
+
+    @Value("${mars_robot.land_width}")
+    public void setLandWidth(Integer landWidth) {
+        this.landWidth = landWidth;
+    }
+
+    @Value("${mars_robot.land_height}")
+    public void setLandHeight(Integer landHeight) {
+        this.landHeight = landHeight;
     }
 }
