@@ -23,7 +23,7 @@ public class PositionValidatorTest {
     }
 
     @Test(expected = PositionDoesNotValidException.class)
-    public void shouldBeInvalidPositive() {
+    public void shouldBeInvalidXPositive() {
         Position position = createPosition();
         position.setX(7);
 
@@ -31,7 +31,23 @@ public class PositionValidatorTest {
     }
 
     @Test(expected = PositionDoesNotValidException.class)
-    public void shouldBeInvalidNegative() {
+    public void shouldBeInvalidXNegative() {
+        Position position = createPosition();
+        position.setX(-2);
+
+        positionValidator.isValid(position);
+    }
+
+    @Test(expected = PositionDoesNotValidException.class)
+    public void shouldBeInvalidYPositive() {
+        Position position = createPosition();
+        position.setY(7);
+
+        positionValidator.isValid(position);
+    }
+
+    @Test(expected = PositionDoesNotValidException.class)
+    public void shouldBeInvalidYNegative() {
         Position position = createPosition();
         position.setY(-2);
 
