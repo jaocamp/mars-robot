@@ -1,10 +1,8 @@
 package gov.nasa.marsrobot.domain;
 
-import gov.nasa.marsrobot.model.Position;
-
 public enum Orientation {
 
-    NORTH("N") {
+    NORTH("N", 0, 1) {
         @Override
         public Orientation left() {
             return WEST;
@@ -14,13 +12,8 @@ public enum Orientation {
         public Orientation right() {
             return EAST;
         }
-
-        @Override
-        public void move(Position position) {
-            position.advanceY();
-        }
     },
-    SOUTH("S") {
+    SOUTH("S", 0, -1) {
         @Override
         public Orientation left() {
             return EAST;
@@ -30,13 +23,8 @@ public enum Orientation {
         public Orientation right() {
             return WEST;
         }
-
-        @Override
-        public void move(Position position) {
-            position.backY();
-        }
     },
-    EAST("E") {
+    EAST("E", 1, 0) {
         @Override
         public Orientation left() {
             return NORTH;
@@ -46,13 +34,8 @@ public enum Orientation {
         public Orientation right() {
             return SOUTH;
         }
-
-        @Override
-        public void move(Position position) {
-            position.advanceX();
-        }
     },
-    WEST("W") {
+    WEST("W", -1, 0) {
         @Override
         public Orientation left() {
             return SOUTH;
@@ -61,11 +44,6 @@ public enum Orientation {
         @Override
         public Orientation right() {
             return NORTH;
-        }
-
-        @Override
-        public void move(Position position) {
-            position.backY();
         }
     };
 
@@ -73,13 +51,25 @@ public enum Orientation {
 
     public abstract Orientation left();
     public abstract Orientation right();
-    public abstract void move(Position position);
 
-    Orientation(String value) {
+    private Integer quantityToincreaseInXAxis;
+    private Integer quantityToincreaseInYAxis;
+
+    Orientation(String value, Integer quantityToincreaseInXAxis, Integer quantityToincreaseInYAxis) {
         this.value = value;
+        this.quantityToincreaseInXAxis = quantityToincreaseInXAxis;
+        this.quantityToincreaseInYAxis = quantityToincreaseInYAxis;
     }
 
     public String getValue() {
         return value;
+    }
+
+    public Integer getQuantityToincreaseInXAxis() {
+        return quantityToincreaseInXAxis;
+    }
+
+    public Integer getQuantityToincreaseInYAxis() {
+        return quantityToincreaseInYAxis;
     }
 }

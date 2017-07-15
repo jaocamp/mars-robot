@@ -1,7 +1,6 @@
 package gov.nasa.marsrobot.service;
 
 import gov.nasa.marsrobot.business.Action;
-import gov.nasa.marsrobot.factory.RobotFactory;
 import gov.nasa.marsrobot.model.Robot;
 import gov.nasa.marsrobot.parse.ParseActions;
 import gov.nasa.marsrobot.validator.PositionValidator;
@@ -13,12 +12,11 @@ import java.util.List;
 @Service
 public class RobotService {
 
-    private RobotFactory robotFactory;
+    private Robot robot;
     private ParseActions parseActions;
     private PositionValidator positionValidator;
 
     public Robot goTo(String route) {
-        Robot robot = robotFactory.create();
         List<Action> actions = parseActions.parse(route);
 
         actions.stream().forEach(action -> action.execute(robot));
@@ -28,10 +26,10 @@ public class RobotService {
     }
 
     @Autowired
-    public void setRobotFactory(RobotFactory robotFactory) {
-        this.robotFactory = robotFactory;
+    public void setRobot(Robot robot) {
+        this.robot = robot;
     }
-
+    
     @Autowired
     public void setParseActions(ParseActions parseActions) {
         this.parseActions = parseActions;

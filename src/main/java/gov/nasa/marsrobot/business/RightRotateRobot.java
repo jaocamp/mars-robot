@@ -2,9 +2,7 @@ package gov.nasa.marsrobot.business;
 
 import gov.nasa.marsrobot.domain.Orientation;
 import gov.nasa.marsrobot.model.Robot;
-import org.springframework.stereotype.Component;
 
-@Component
 public class RightRotateRobot implements Action {
 
     @Override

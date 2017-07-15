@@ -39,30 +39,6 @@ public class Position implements Serializable {
         this.y = y;
     }
 
-    public void advanceX() {
-        this.x++;
-    }
-
-    public void backX() {
-        this.x--;
-    }
-
-    public void advanceY() {
-        this.y++;
-    }
-
-    public void backY() {
-        this.y--;
-    }
-
-    public void addX() {
-        this.x++;
-    }
-
-    public void removeX() {
-        this.x--;
-    }
-
     public Orientation getOrientation() {
         return orientation;
     }
