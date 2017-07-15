@@ -3,7 +3,8 @@ package gov.nasa.marsrobot.service;
 import gov.nasa.marsrobot.domain.Orientation;
 import gov.nasa.marsrobot.exception.CommandDoesNotValidException;
 import gov.nasa.marsrobot.exception.PositionDoesNotValidException;
-import gov.nasa.marsrobot.model.Position;
+import gov.nasa.marsrobot.factory.PositionFactory;
+import gov.nasa.marsrobot.factory.RobotFactory;
 import gov.nasa.marsrobot.model.Robot;
 import gov.nasa.marsrobot.parse.ParseActions;
 import gov.nasa.marsrobot.validator.PositionValidator;
@@ -14,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.core.env.Environment;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 
 public class RobotServiceTest {
@@ -26,19 +28,12 @@ public class RobotServiceTest {
     @Before
     public void setup() throws Exception {
         MockitoAnnotations.initMocks(this);
-
-        PositionValidator positionValidator = new PositionValidator();
-        positionValidator.setLandWidth(5);
-        positionValidator.setLandHeight(5);
-
-        robotService = new RobotService();
-        robotService.setParseActions(new ParseActions());
-        robotService.setPositionValidator(positionValidator);
+        mockEnvironments();
+        setRobotService();
     }
 
     @Test
     public void shouldMoveTo2x0ySouthOrientation() {
-        robotService.setRobot(createRobot());
         Robot robot = robotService.goTo("MMRMMRMM");
 
         assertEquals("(2, 0, S)", robot.getPosition().toString());
@@ -46,7 +41,6 @@ public class RobotServiceTest {
 
     @Test
     public void shouldMoveTo0x2yWestOrientation() {
-        robotService.setRobot(createRobot());
         Robot robot = robotService.goTo("MML");
 
         assertEquals("(0, 2, W)", robot.getPosition().toString());
@@ -54,7 +48,6 @@ public class RobotServiceTest {
 
     @Test
     public void shouldMoveTo2x2yNorthOrientation() {
-        robotService.setRobot(createRobot());
         Robot robot = robotService.goTo("MMRMML");
 
         assertEquals("(2, 2, N)", robot.getPosition().toString());
@@ -62,7 +55,6 @@ public class RobotServiceTest {
 
     @Test
     public void shouldMoveTo4x2yEastOrientation() {
-        robotService.setRobot(createRobot());
         Robot robot = robotService.goTo("MMRMMMM");
 
         assertEquals("(4, 2, E)", robot.getPosition().toString());
@@ -70,22 +62,46 @@ public class RobotServiceTest {
 
     @Test(expected = CommandDoesNotValidException.class)
     public void shouldValidateInvalidCommand() {
-        robotService.setRobot(createRobot());
         robotService.goTo("AAA");
     }
 
     @Test(expected = PositionDoesNotValidException.class)
     public void shouldValidateInvalidPosition() {
-        robotService.setRobot(createRobot());
         robotService.goTo("MMMMMMMMMMM");
     }
 
-    private Robot createRobot() {
-        return new Robot("Bit", createPosition());
+    private void setRobotService() {
+        robotService = new RobotService();
+        robotService.setParseActions(new ParseActions());
+        robotService.setPositionValidator(getPositionValidator());
+        robotService.setRobotFactory(getRobotFactory());
     }
 
-    private Position createPosition() {
-        return new Position(0, 0, Orientation.NORTH);
+    private RobotFactory getRobotFactory() {
+        RobotFactory robotFactory = new RobotFactory();
+        robotFactory.setPositionFactory(getPositionFactory());
+        return robotFactory;
     }
 
+    private PositionFactory getPositionFactory() {
+        PositionFactory positionFactory = new PositionFactory();
+        positionFactory.setEnv(environment);
+        return positionFactory;
+    }
+
+    private PositionValidator getPositionValidator() {
+        PositionValidator positionValidator = new PositionValidator();
+        positionValidator.setLandWidth(5);
+        positionValidator.setLandHeight(5);
+        return positionValidator;
+    }
+
+    private void mockEnvironments() {
+        when(environment.getProperty("mars_robot.init_orientation", Orientation.class))
+                .thenReturn(Orientation.NORTH);
+        when(environment.getProperty("mars_robot.init_x", Integer.class))
+                .thenReturn(0);
+        when(environment.getProperty("mars_robot.init_y", Integer.class))
+                .thenReturn(0);
+    }
 }
