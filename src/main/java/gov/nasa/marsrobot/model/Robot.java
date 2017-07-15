@@ -37,7 +37,7 @@ public class Robot implements Serializable {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Robot{");
-        sb.append(", name='").append(name).append('\'');
+        sb.append("name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();
     }

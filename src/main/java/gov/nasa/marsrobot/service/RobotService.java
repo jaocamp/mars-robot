@@ -29,7 +29,7 @@ public class RobotService {
     public void setRobot(Robot robot) {
         this.robot = robot;
     }
-    
+
     @Autowired
     public void setParseActions(ParseActions parseActions) {
         this.parseActions = parseActions;

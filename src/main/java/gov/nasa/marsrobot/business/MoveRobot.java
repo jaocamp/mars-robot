@@ -12,4 +12,6 @@ public class MoveRobot implements Action {
     private void move(Robot robot){
         new RepositioneRobot().repositione(robot.getPosition());
     }
+
+
 }

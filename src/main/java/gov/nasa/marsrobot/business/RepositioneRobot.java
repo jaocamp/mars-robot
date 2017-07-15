@@ -10,12 +10,12 @@ public class RepositioneRobot {
     }
 
     private void repositioneYAxis(Position position) {
-        Integer quantity = position.getOrientation().getQuantityToincreaseInYAxis();
+        Integer quantity = position.getOrientation().getQuantityToIncreaseInYAxis();
         position.setY(position.getY() + quantity);
     }
 
     private void repositioneXAxis(Position position) {
-        Integer quantity = position.getOrientation().getQuantityToincreaseInXAxis();
+        Integer quantity = position.getOrientation().getQuantityToIncreaseInXAxis();
         position.setX(position.getX() + quantity);
     }
 }

@@ -52,24 +52,24 @@ public enum Orientation {
     public abstract Orientation left();
     public abstract Orientation right();
 
-    private Integer quantityToincreaseInXAxis;
-    private Integer quantityToincreaseInYAxis;
+    private Integer quantityToIncreaseInXAxis;
+    private Integer quantityToIncreaseInYAxis;
 
-    Orientation(String value, Integer quantityToincreaseInXAxis, Integer quantityToincreaseInYAxis) {
+    Orientation(String value, Integer quantityToIncreaseInXAxis, Integer quantityToIncreaseInYAxis) {
         this.value = value;
-        this.quantityToincreaseInXAxis = quantityToincreaseInXAxis;
-        this.quantityToincreaseInYAxis = quantityToincreaseInYAxis;
+        this.quantityToIncreaseInXAxis = quantityToIncreaseInXAxis;
+        this.quantityToIncreaseInYAxis = quantityToIncreaseInYAxis;
     }
 
     public String getValue() {
         return value;
     }
 
-    public Integer getQuantityToincreaseInXAxis() {
-        return quantityToincreaseInXAxis;
+    public Integer getQuantityToIncreaseInXAxis() {
+        return quantityToIncreaseInXAxis;
     }
 
-    public Integer getQuantityToincreaseInYAxis() {
-        return quantityToincreaseInYAxis;
+    public Integer getQuantityToIncreaseInYAxis() {
+        return quantityToIncreaseInYAxis;
     }
 }

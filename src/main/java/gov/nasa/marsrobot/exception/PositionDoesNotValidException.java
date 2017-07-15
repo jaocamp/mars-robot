@@ -7,16 +7,4 @@ public class PositionDoesNotValidException extends RuntimeException {
     public PositionDoesNotValidException() {
         super();
     }
-
-    public PositionDoesNotValidException(final String message, final Throwable cause) {
-        super(message, cause);
-    }
-
-    public PositionDoesNotValidException(final String message) {
-        super(message);
-    }
-
-    public PositionDoesNotValidException(final Throwable cause) {
-        super(cause);
-    }
 }
