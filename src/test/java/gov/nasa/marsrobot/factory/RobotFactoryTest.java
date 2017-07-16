@@ -20,7 +20,7 @@ public class RobotFactoryTest {
     private RobotFactory robotFactory;
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         PositionFactory positionFactory = new PositionFactory();

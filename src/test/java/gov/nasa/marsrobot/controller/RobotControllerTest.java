@@ -31,7 +31,7 @@ public class RobotControllerTest {
     private Environment env;
 
     @Before
-    public void setup() {
+    public void setUp() {
         this.mockMvc = webAppContextSetup(webApplicationContext).build();
     }
 

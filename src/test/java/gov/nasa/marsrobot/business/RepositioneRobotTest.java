@@ -12,7 +12,7 @@ public class RepositioneRobotTest {
     private RepositioneRobot repositioneRobot;
 
     @Before
-    public void setup() {
+    public void setUp() {
         repositioneRobot = new RepositioneRobot();
     }
 

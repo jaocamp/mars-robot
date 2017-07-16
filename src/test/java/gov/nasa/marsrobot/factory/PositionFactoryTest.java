@@ -19,7 +19,7 @@ public class PositionFactoryTest {
     private PositionFactory positionFactory;
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         positionFactory = new PositionFactory();

@@ -13,7 +13,7 @@ public class RightRotateRobotTest {
     private RightRotateRobot rightRotateRobot;
 
     @Before
-    public void setup() {
+    public void setUp() {
         rightRotateRobot = new RightRotateRobot();
     }
 

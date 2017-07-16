@@ -26,7 +26,7 @@ public class RobotServiceTest {
     private Environment environment;
 
     @Before
-    public void setup() throws Exception {
+    public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         mockEnvironments();
         setRobotService();

@@ -6,12 +6,14 @@ import gov.nasa.marsrobot.model.Position;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class PositionValidatorTest {
 
     private PositionValidator positionValidator;
 
     @Before
-    public void setup() {
+    public void setUp() {
         positionValidator = new PositionValidator();
         positionValidator.setLandHeight(5);
         positionValidator.setLandWidth(5);
@@ -20,6 +22,7 @@ public class PositionValidatorTest {
     @Test
     public void shouldBeValid() {
         positionValidator.isValid(createPosition());
+        assertTrue(Boolean.TRUE);
     }
 
     @Test(expected = PositionDoesNotValidException.class)

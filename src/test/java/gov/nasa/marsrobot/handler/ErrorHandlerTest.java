@@ -21,7 +21,7 @@ public class ErrorHandlerTest {
     private ErrorHandler errorHandler;
 
     @Before
-    public void setup() {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         errorHandler = new ErrorHandler();

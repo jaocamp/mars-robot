@@ -18,7 +18,7 @@ public class ParseActionsTest {
     private ParseActions parseActions;
 
     @Before
-    public void setup() {
+    public void setUp() {
         parseActions = new ParseActions();
     }
 

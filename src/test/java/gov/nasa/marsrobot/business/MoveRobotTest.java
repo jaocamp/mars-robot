@@ -13,7 +13,7 @@ public class MoveRobotTest {
     private MoveRobot moveRobot;
 
     @Before
-    public void setup() {
+    public void setUp() {
         moveRobot = new MoveRobot();
     }
 
