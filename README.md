@@ -96,6 +96,6 @@ Parâmetro | Descrição
 Código | Resposta
 ------------ | -------------
 `200` | `(0, 2, N)` 
-`400` | `Um dos comandos enviandos na rota não é valido.`
-`400` | `A rota informada leva a uma posição invalida.`
+`400` | `Um dos comandos enviandos na rota não é válido.`
+`400` | `A rota informada leva a uma posição inválida.`
 `400` | `Ocorreu um problema desconhecido, para mais informações entre em contato com o suporte.`
