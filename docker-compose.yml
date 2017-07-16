@@ -1,0 +1,10 @@
+version: '2'
+services:
+
+  mars-robot:
+    image: ${NAMESPACE}/mars-robot:${VERSION}
+    mem_limit: ${MEM_LIMIT}
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
