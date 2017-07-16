@@ -1,5 +1,5 @@
 FROM frolvlad/alpine-oraclejdk8:slim
-MAINTAINER Joao Rafael Campos da Silva
+MAINTAINER jrafael_campossilva@hotmail.com
 VOLUME /tmp
 COPY *.jar app.jar
 RUN sh -c 'touch /app.jar'

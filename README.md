@@ -28,7 +28,7 @@ Exemplo: Se o robô está na posição `(0,0,N)`, o comando `MML` fará ele cheg
 ## Iniciando a Aplicação
 
 Projeto Java implementado utilizando Java 8, Spring Boot, gerenciamento de builds com Maven, 
-testes unitários com JUnit e de API com MockMVC do Spring. A interface de comunicação com o robô é REST;
+testes unitários com JUnit e de API com MockMVC do Spring. A interface de comunicação com o robô é REST.
 
 ### Requisitos
 
@@ -39,14 +39,14 @@ testes unitários com JUnit e de API com MockMVC do Spring. A interface de comun
 
 ### Gerando o Pacote
 
-Sendo um projeto Maven, execute os goals `clean` e `install` na raiz do projeto para baixar as dependências e gerar o `jar` do projeto.
+Sendo um projeto Maven, execute os goals `clean` e `install` na raiz do projeto para baixar as dependências e gerar `jar` do projeto.
 
 ```bash
 #!/mars-robot
 $ mvn clean install
 ```
 
-### Executando Jar
+### Executando o Jar
 
 Como se trata de um projeto Spring Boot, podemos simplismente executar o `jar` que foi gerado na pasta `target` e a aplicação irá subir em um tomcat embedded.
 
