@@ -6,6 +6,10 @@ public class Robot implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String name;
+
+    private Position position;
+
     public Robot() {
     }
 
@@ -13,10 +17,6 @@ public class Robot implements Serializable {
         this.name = name;
         this.position = position;
     }
-
-    private String name;
-
-    private Position position;
 
     public String getName() {
         return name;
