@@ -18,12 +18,12 @@ public class PositionTest {
     @Test
     public void shouldBePossibleToSetAttributes() {
         Position position = new Position();
-        position.setX(0);
-        position.setY(0);
+        position.setX(2);
+        position.setY(2);
         position.setOrientation(Orientation.NORTH);
 
-        assertEquals(Integer.valueOf(0), position.getX());
-        assertEquals(Integer.valueOf(0), position.getX());
+        assertEquals(Integer.valueOf(2), position.getX());
+        assertEquals(Integer.valueOf(2), position.getY());
         assertEquals(Orientation.NORTH, position.getOrientation());
     }
 

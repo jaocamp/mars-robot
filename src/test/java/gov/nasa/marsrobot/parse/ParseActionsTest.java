@@ -52,6 +52,6 @@ public class ParseActionsTest {
 
     @Test(expected = CommandDoesNotValidException.class)
     public void shouldContainInvalidCommand() throws Exception {
-        List<Action> actions = parseActions.parse("MLARM");
+        parseActions.parse("MLARM");
     }
 }

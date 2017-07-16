@@ -48,12 +48,11 @@ public enum Orientation {
     };
 
     private String value;
+    private Integer quantityToIncreaseInXAxis;
+    private Integer quantityToIncreaseInYAxis;
 
     public abstract Orientation left();
     public abstract Orientation right();
-
-    private Integer quantityToIncreaseInXAxis;
-    private Integer quantityToIncreaseInYAxis;
 
     Orientation(String value, Integer quantityToIncreaseInXAxis, Integer quantityToIncreaseInYAxis) {
         this.value = value;
