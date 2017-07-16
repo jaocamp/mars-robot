@@ -1,6 +1,6 @@
 # Mars Robot
 
-[![GitHub release](https://img.shields.io/github/release/rafaelcam/mars-robot.svg)](https://github.com/rafaelcam/mars-robot/tree/v1.0)
+[![GitHub release](https://img.shields.io/github/release/rafaelcam/mars-robot.svg)](https://github.com/rafaelcam/mars-robot/tree/v1.1)
 [![Build Status](https://travis-ci.org/rafaelcam/mars-robot.svg?branch=master)](https://travis-ci.org/rafaelcam/mars-robot)
 [![codecov](https://codecov.io/gh/rafaelcam/mars-robot/branch/master/graph/badge.svg)](https://codecov.io/gh/rafaelcam/mars-robot)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f611cad015d542a0b80bede479627a34)](https://www.codacy.com/app/rafaelcam/mars-robot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rafaelcam/mars-robot&amp;utm_campaign=Badge_Grade)
